@@ -14,6 +14,7 @@ $(document).ready(function(){
         playHadouken();
         //show ryu throwing
         $('.ryu-ready').hide();
+        $('.ryu-still').hide();
         $('.ryu-throwing').show();
         //show hadouken and animate it to the right
         $('.hadouken').finish().show().animate(
@@ -28,7 +29,21 @@ $(document).ready(function(){
         //ryu goes back to his ready position
         $('.ryu-ready').show();
         $('.ryu-throwing').hide();
-    });    
+    });
+    $(document).keydown(function(e){
+        if (e.which == 88){
+            $('.ryu-still').hide();
+            $('.ryu-ready').hide();
+            $('.ryu-throwing').hide();
+            $('.ryu-cool').show();
+            
+        }
+    }).keyup(function(e){
+        if (e.which == 88){
+            $('.ryu-cool').hide();
+            $('.ryu-still').show();
+        }
+    });
 });
 
 function playHadouken () {
